@@ -1,0 +1,22 @@
+---
+title: "Leaflet Demo"
+author: "Steven Zhang"
+date: "Dec 6, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary
+
+Several Years ago, I have been to Nepal to serve as a volunteer, which is one of the best parts of my life. Some places that I have been to are shown below.
+
+```{r leaflet}
+library(leaflet)
+latLong  <- data.frame(latitude = c(27.7033170000, 27.7014620000, 27.7138710000), longitude = c(85.3169620000, 85.3120760000, 85.3217770000), popup = c("Tundikhel", "Dharahara", "Narayanhiti"))
+my.nvc <- latLong %>% leaflet() %>% addTiles() %>% addMarkers(popup = latLong$popup)
+my.nvc
+```
+
